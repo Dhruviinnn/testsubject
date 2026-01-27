@@ -11,6 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     message.textContent = "Login successful!";
   } else {
     message.style.color = "red";
-    message.textContent = "Invalid username or password!";
+    message.textConte = "Invalid username or password!";
   }
+
 });
