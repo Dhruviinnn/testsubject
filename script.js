@@ -13,5 +13,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     message.style.color = "red";
     message.textConte = "Invalid username or password!";
   }
+  const count = 5;
+count = 10;
 
 });
+
