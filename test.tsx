@@ -5,7 +5,7 @@ type Props = {
 };
 
 const TestComponent = (props: Props) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   const unusedVar = 123;    // ❌ @typescript-eslint/no-unused-vars
 
@@ -30,5 +30,6 @@ const TestComponent = (props: Props) => {
     </div>
   );
 };
+
 
 export default TestComponent;
