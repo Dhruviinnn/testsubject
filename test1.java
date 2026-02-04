@@ -1,48 +1,13 @@
-package com.example;
+public class Test1 {
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-public class DemoErrors {
-
-    // --------------------------------------------------
-    // 1️⃣ javac error (compile-time)
-    // Type mismatch
-    // --------------------------------------------------
-    public void javacError() {
-        int x = "not a number"; // ❌ javac: incompatible types
-    }
-
-    // --------------------------------------------------
-    // 2️⃣ Checker Framework error (nullness)
-    // --------------------------------------------------
-    public void checkerFrameworkError(@NonNull String name) {
-        name = null; // ❌ Checker: assigning null to @NonNull
-    }
-
-    // --------------------------------------------------
-    // 3️⃣ SpotBugs / NullAway error (possible NPE)
-    // --------------------------------------------------
-    public void spotBugsError() {
+    public static void main(String[] args) {
         String s = null;
-        System.out.println(s.length()); // ❌ NP_NULL_ON_SOME_PATH
-    }
+        System.out.println(s.length()); // NP_NULL_ON_SOME_PATH
 
-    // --------------------------------------------------
-    // 4️⃣ PMD error (empty catch block)
-    // --------------------------------------------------
-    public void pmdError() {
-        try {
-            int x = 10 / 0;
-        } catch (Exception e) {
-            // ❌ PMD: EmptyCatchBlock
+        if (true) {
+            int x = 1;
+        } else {
+            int x = 2; // PMD: AvoidDuplicateLiterals
         }
-    }
-
-    // --------------------------------------------------
-    // 5️⃣ Test-related logic error (bad design)
-    // (won't fail compile, but should fail tests)
-    // --------------------------------------------------
-    public int divide(int a, int b) {
-        return a / 0; // ❌ Test should catch ArithmeticException
     }
 }
